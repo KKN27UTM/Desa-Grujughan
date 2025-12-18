@@ -3,148 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Resmi Desa Grujugan - Pamekasan</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    
+    <title>Desa Grujugan - Pamekasan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">🌀 Purpol - Grujugan</div>
-        <ul class="nav-links">
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#profil">Profil</a></li>
-            <li><a href="#potensi">Potensi</a></li>
-            <li><a href="#kegiatan">Kegiatan KKN</a></li>
-            <li><a href="#kontak" class="btn-kontak">Kontak</a></li>
-        </ul>
+    <nav id="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo-container">
+                <img src="assets/img/OIP.jpg" alt="Logo Desa" class="logo-img">
+                <div class="logo-text">DESA <span>GRUJUAGAN</span></div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-active">Beranda</a></li>
+                <li><a href="#profil">Profil Desa</a></li>
+                <li><a href="#potensi">Potensi Lokal</a></li>
+                <li><a href="#kkn">Jejak KKN</a></li>
+                <li><a href="#galeri">Galeri Visual</a></li>
+                <li><a href="#kontak">Kontak Kami</a></li>
+            </ul>
+
+            <div class="mobile-menu-icon" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
     </nav>
 
-
-
-    <section class="hero" id="beranda">
-        <div class="hero-text">
-            <p class="tagline">Selamat Datang di Website Desa Grujugan</p>
-            <h1>Desa <br> Grujugan</h1>
-            <p class="description">Desa Grujugan adalah desa yang terletak di Kecamatan Larangan, Pamekasan, Madura. Desa ini memiliki potensi pertanian dan semangat gotong royong yang sangat besar.</p>
-            <a href="#potensi" class="btn-primary">Jelajahi Sekarang</a>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="main-title">Menjelajahi Harmoni di Desa Grujugan, Pamekasan</h1>
+            <p class="sub-title">Sebuah Kisah tentang Potensi, Kearifan Lokal, dan Semangat Pengabdian dari Mahasiswa KKN.</p>
+            <div class="btn-group">
+                <a href="#profil" class="btn-primary">Selengkapnya</a>
+            </div>
         </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Pemandangan Desa Grujugan">
+        <div class="scroll-down">
+            <div class="mouse"></div>
         </div>
     </section>
 
-    <section class="profil" id="profil">
-        <div class="profil-img">
-            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80" alt="Profil Desa">
-        </div>
-        <div class="profil-content">
-            <p class="section-label">Profil Desa Grujugan</p>
-            <h2>Sekilas tentang Desa</h2>
-            <div class="info-card">
-                <strong>Keunggulan Produk Tembakau</strong><br>
-                <span>Kualitas Terbaik dari Petani Lokal Grujugan</span>
-            </div>
-            <div class="info-card">
-                <strong>Sentra Industri Tahu</strong><br>
-                <span>Mendukung ekonomi kreatif masyarakat setempat</span>
-            </div>
-            <a href="#" class="btn-outline">Lihat Selengkapnya</a>
-        </div>
-    </section>
 
-    <section class="potensi" id="potensi">
-        <p class="label-light">Pusat Informasi Desa</p>
-        <h2 class="title-light">Seputar Desa Grujugan</h2>
-        <div class="potensi-grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=500&q=60" alt="Pertanian">
-                <div class="card-body">
-                    <h4>Pertanian Tembakau</h4>
-                    <p>Hasil tembakau berkualitas tinggi yang menjadi komoditas utama.</p>
+
+    <section id="profil" class="about-section">
+        <div class="container about-wrapper">
+            
+            <div class="about-image-container">
+                <div class="image-back-card"></div>
+                <div class="image-main-card">
+                    <img src="assets/img/OIP.jpg" alt="Senyum Warga Desa">
+                    <div class="image-overlay-text">Senyum Warga Desa</div>
                 </div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1584263343327-4479f8249608?auto=format&fit=crop&w=500&q=60" alt="Industri">
-                <div class="card-body">
-                    <h4>Industri Tahu</h4>
-                    <p>Produk olahan tahu tradisional yang higienis dan lezat.</p>
+
+            <div class="about-content">
+                <span class="tagline">TENTANG KAMI</span>
+                <h2 class="about-title">Jendela Menuju <br> Kearifan Grujugan</h2>
+                <p class="about-description">
+                    Selamat datang di Grujugan, desa permai di jantung Pamekasan yang kaya tradisi. Di sini, hijaunya persawahan bertemu senyum tulus warga, menciptakan harmoni kehidupan yang unik dan damai.
+                </p>
+                <blockquote class="about-quote">
+                    "Setiap sudut desa menyimpan cerita, setiap senyum warga adalah inspirasi."
+                </blockquote>
+                
+                <a href="profil-lengkap.html" class="btn-about">
+                    Tentang Kami 
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section id="potensi" class="potensi-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="potensi-title">Dari Lahan Subur hingga Tangan Terampil</h2>
+                <p class="potensi-subtitle">Desa Grujugan menyimpan beragam potensi luar biasa yang menjadi fondasi kesejahteraan dan identitas masyarakat, siap untuk dikembangkan bersama.</p>
+            </div>
+
+            <div class="potensi-grid">
+                <div class="potensi-card">
+                    <div class="icon-box icon-green">
+                        <i class="fa-solid fa-wheat-awn"></i> </div>
+                    <h3>Pertanian Jagung Unggul</h3>
+                    <p>Lahan subur Desa Grujugan menghasilkan jagung berkualitas tinggi yang menjadi tulang punggung ekonomi dan ketahanan pangan lokal.</p>
+                </div>
+
+                <div class="potensi-card">
+                    <div class="icon-box icon-orange">
+                        <i class="fa-solid fa-hands-holding"></i> </div>
+                    <h3>Kerajinan Anyaman Lokal</h3>
+                    <p>Tangan-tangan terampil warga merangkai serat alam menjadi produk anyaman unik yang bernilai seni dan ekonomi tinggi.</p>
+                </div>
+
+                <div class="potensi-card">
+                    <div class="icon-box icon-leaf">
+                        <i class="fa-solid fa-masks-theater"></i> </div>
+                    <h3>Tradisi Budaya Terjaga</h3>
+                    <p>Dari ritual adat hingga kesenian, desa ini aktif melestarikan warisan budaya leluhur sebagai identitas dan sumber inspirasi.</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=500&q=60" alt="Layanan">
-                <div class="card-body">
-                    <h4>Layanan Mandiri</h4>
-                    <p>Memudahkan warga dalam mengurus administrasi kependudukan.</p>
+
+            <div class="potensi-footer">
+                <a href="potensi-lengkap.html" class="link-more">
+                    Lihat Selengkapnya <span class="arrow-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="kkn" class="kkn-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="kkn-title">Kolaborasi untuk Kemajuan</h2>
+                <p class="kkn-subtitle">Selama masa pengabdian, kami bersama warga desa telah melaksanakan berbagai program yang berfokus pada pendidikan, kesehatan, dan pengembangan ekonomi lokal.</p>
+            </div>
+
+            <div class="kkn-accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="header-content">
+                            <div class="icon-circle">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <h3>Pendidikan Ceria Anak Desa</h3>
+                        </div>
+                        <i class="fa-solid fa-chevron-down arrow-toggle"></i>
+                    </div>
+                    
+                    <div class="accordion-content">
+                        <div class="detail-wrapper">
+                            <div class="detail-image">
+                                <img src="assets/img/OIP.jpg" alt="Kegiatan Pendidikan">
+                            </div>
+                            <div class="detail-text">
+                                <span class="date-tag"><i class="fa-regular fa-calendar"></i> 12 Desember 2025</span>
+                                <p>Mengadakan bimbingan belajar rutin, pengenalan literasi digital, dan kelas kreativitas untuk membangkitkan semangat belajar anak-anak di Desa Grujugan.</p>
+                                <ul class="activity-list">
+                                    <li>Pengajaran Bahasa Inggris Dasar</li>
+                                    <li>Workshop Coding untuk Anak</li>
+                                    <li>Lomba Mewarnai Kreatif</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            <div class="kkn-footer">
+                <a href="kegiatan-lengkap.html" class="btn-kkn-more">
+                    Lihat Kegiatan Kami <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="galeri" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="gallery-title">Momen yang Bercerita</h2>
+                <p class="gallery-subtitle">Biarkan gambar yang berbicara. Galeri ini merangkum tawa, kerja keras, dan kebersamaan antara mahasiswa KKN dengan masyarakat Desa Grujugan.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/img/OIP.jpg" alt="Kegiatan KKN">
+                    <div class="gallery-overlay">
+                        <span>Gotong Royong</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item tall">
+                    <img src="assets/img/OIP.jpg" alt="Kegiatan KKN">
+                    <div class="gallery-overlay">
+                        <span>Penyuluhan Kesehatan</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item medium">
+                    <img src="assets/img/OIP.jpg" alt="Kegiatan KKN">
+                    <div class="gallery-overlay">
+                        <span>Bersama Anak Desa</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item tall">
+                    <img src="assets/img/OIP.jpg" alt="Kegiatan KKN">
+                    <div class="gallery-overlay">
+                        <span>Pemberdayaan UMKM</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="assets/img/OIP.jpg" alt="Kegiatan KKN">
+                    <div class="gallery-overlay">
+                        <span>Tradisi Lokal</span>
+                    </div>
+                </div>
+
+                <!-- <div class="gallery-item medium">
+                    <img src="assets/img/OIP.jpg" alt="Kegiatan KKN">
+                    <div class="gallery-overlay">
+                        <span>Senyum Warga</span>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="gallery-footer">
+                <a href="galeri-lengkap.html" class="btn-gallery">
+                    Galeri Kami <i class="fa-solid fa-images"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="kontak" class="contact-section">
+        <div class="container contact-wrapper">
+            <div class="contact-info">
+                <h2 class="contact-title">Hubungi Kami</h2>
+                <p class="contact-subtitle">Punya pertanyaan atau ingin tahu lebih banyak tentang Desa Grujugan dan program KKN kami? Silakan hubungi narahubung di bawah ini.</p>
+                
+                <div class="info-list">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <strong>Balai Desa Grujugan</strong>
+                            <p>Kecamatan Larangan, Kabupaten Pamekasan<br>Jawa Timur, 69371</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <div>
+                            <strong>Ahmad Zulkifli</strong>
+                            <p>Koordinator Desa KKN</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <strong>Email Kami</strong>
+                            <p>kkn.grujugan@example.com</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="kkn" id="kegiatan">
-        <p class="section-label">Berita Terkini</p>
-        <h2 class="section-title">Kegiatan KKN Grujugan</h2>
-        <div class="kkn-grid">
-            <img src="https://plus.unsplash.com/premium_photo-1663047209594-874b3017a943?q=80&w=400" alt="Kegiatan 1">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=400" alt="Kegiatan 2">
-            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=400" alt="Kegiatan 3">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=400" alt="Kegiatan 4">
-            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=400" alt="Kegiatan 5">
-            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=400" alt="Kegiatan 6">
-        </div>
-    </section>
-
-    <section class="kontak" id="kontak">
-        <div class="map-placeholder">
-            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80" alt="Lokasi">
-        </div>
-        <div class="kontak-details">
-            <span class="badge">Hubungi Kami</span>
-            <h2>Informasi <br>dan Kontak</h2>
-            <div class="kontak-list">
-                <div class="kontak-item"><span>📍 Temukan Kami di Peta</span> <span>→</span></div>
-                <div class="kontak-item"><span>📞 Telepon Kami</span> <span>→</span></div>
-                <div class="kontak-item"><span>📱 Media Sosial Desa</span> <span>→</span></div>
-                <div class="kontak-item"><span>🌐 Kunjungi Website Resmi</span> <span>→</span></div>
+            <div class="contact-map">
+                <h3 class="map-title">Peta Lokasi</h3>
+                <p>Temukan kami di jantung Pamekasan.</p>
+                <a href="https://maps.app.goo.gl/cSvXK1jCdYyCerhZ8" target="_blank" class="map-placeholder">
+                    <div class="map-overlay">
+                        <i class="fa-solid fa-map-location-dots"></i>
+                        <span>Buka Peta Desa Grujugan</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-col logo-footer">
-            <div class="logo">🌀 Purpol</div>
-            <p>© 2025 Purpol, Inc. <br> All rights reserved.</p>
-        </div>
-        <div class="footer-col">
-            <h4>Tautan Cepat</h4>
-            <ul>
-                <li>Beranda</li>
-                <li>Profil</li>
-                <li>Potensi</li>
-                <li>Kontak</li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Media Sosial</h4>
-            <ul>
-                <li>Facebook</li>
-                <li>Instagram</li>
-                <li>Twitter</li>
-                <li>YouTube</li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <h4>Informasi Lainnya</h4>
-            <ul>
-                <li>Berita Desa</li>
-                <li>Galeri Foto</li>
-                <li>Peta Lokasi</li>
-                <li>Hubungi Kami</li>
-            </ul>
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="logo">DESA <span>GRUJUAGAN</span></div>
+                <p>&copy; 2025 KKN Desa Grujugan. <br> Seluruh Hak Cipta Dilindungi.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#profil">Profil Desa</a></li>
+                    <li><a href="#potensi">Potensi</a></li>
+                    <li><a href="#kkn">Jejak KKN</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Ikuti Kami</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-location">
+                <h4>Lokasi</h4>
+                <p>Kecamatan Larangan, Pamekasan, Jawa Timur.</p>
+                <a href="https://maps.app.goo.gl/cSvXK1jCdYyCerhZ8" target="_blank" class="btn-map-small">Petunjuk Jalan <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
         </div>
     </footer>
 
+    <script>
+        // Efek Navbar saat Scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Toggle Menu Mobile
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+    
+    <script>
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
