@@ -52,15 +52,21 @@ function setActiveNavLink() {
     const navLinks = document.querySelectorAll('.nav-links a');
     
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
+        const href = link.getAttribute('href');
         
-        // Cek jika link adalah Beranda (/)
-        const isHome = currentPath.endsWith('/') || currentPath.endsWith('index.html');
+        // Membersihkan path untuk perbandingan yang akurat
+        const cleanCurrentPath = currentPath.split('/').pop() || 'index.html';
+        const cleanHref = href.split('/').pop();
+
+        if (cleanCurrentPath === cleanHref) {
+            link.classList.add('active');
+        }
         
-        if (linkPath === '/' && isHome) {
-            link.classList.add('active');
-        } else if (linkPath !== '/' && currentPath.includes(linkPath)) {
-            link.classList.add('active');
+        // Tambahan untuk menangani root folder di GitHub
+        if (currentPath.endsWith('/') && href.includes('index.html')) {
+            if (!currentPath.includes('profile') && !currentPath.includes('kegiatan')) {
+                    link.classList.add('active');
+            }
         }
     });
 }
