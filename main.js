@@ -1,12 +1,31 @@
 /**
- * 1. FUNGSI LOAD KOMPONEN (NAVBAR & FOOTER)
+ * 1. FUNGSI LOAD KOMPONEN (NAVBAR & FOOTER) - PERBAIKAN PATH
  */
 function loadComponent(elementId, filePath) {
-    const rootPath = filePath.startsWith('/') ? filePath : '/' + filePath;
+    // Menghapus '/' di depan agar menjadi path relatif
+    const cleanPath = filePath.startsWith('/') ? filePath.substring(1) : filePath;
+    
+    // Logika penyesuaian path agar jalan di Local maupun GitHub Pages
+    let finalPath = '';
+    const isLocal = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
+    
+    if (isLocal) {
+        // Jika local, gunakan root path
+        finalPath = '/' + cleanPath;
+    } else {
+        // Jika di GitHub Pages, hitung kedalaman folder
+        const pathArray = window.location.pathname.split('/');
+        // Jika berada di subfolder (seperti /profile/), tambahkan '../'
+        if (pathArray.length > 3 || (pathArray.length === 3 && pathArray[2] !== "")) {
+            finalPath = '../' + cleanPath;
+        } else {
+            finalPath = cleanPath;
+        }
+    }
 
-    fetch(rootPath)
+    fetch(finalPath)
         .then(response => {
-            if (!response.ok) throw new Error("Gagal memuat " + rootPath);
+            if (!response.ok) throw new Error("Gagal memuat " + finalPath);
             return response.text();
         })
         .then(data => {
@@ -16,7 +35,6 @@ function loadComponent(elementId, filePath) {
                 setActiveNavLink(); 
                 initNavbarFunctions(); 
             }
-            // Inisialisasi ulang image viewer agar gambar di nav/footer juga bisa di-klik
             initImageViewer();
         })
         .catch(error => console.error(error));
@@ -31,7 +49,10 @@ function setActiveNavLink() {
     
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
-        if (linkPath === '/' && (currentPath === '/' || currentPath === '/index.html')) {
+        // Mendapatkan nama file terakhir dari path
+        const isHome = currentPath.endsWith('/') || currentPath.endsWith('index.html');
+        
+        if (linkPath === '/' && isHome) {
             link.classList.add('active');
         } else if (linkPath !== '/' && currentPath.includes(linkPath)) {
             link.classList.add('active');
@@ -46,6 +67,8 @@ function initNavbarFunctions() {
     const nav = document.getElementById('navbar');
     const navLinks = document.querySelector('.nav-links');
 
+    if (!nav) return;
+
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
@@ -54,7 +77,6 @@ function initNavbarFunctions() {
         }
     });
 
-    // Toggle Menu Mobile
     window.toggleMenu = function() {
         if (navLinks) navLinks.classList.toggle('active');
     };
@@ -84,26 +106,14 @@ function initImageViewer() {
     const captionText = document.getElementById("caption");
     const closeBtn = document.querySelector(".close-viewer");
 
-    if (!modal) return; // Berhenti jika modal tidak ada di halaman
+    if (!modal) return;
 
-    // Untuk gambar umum
-    document.querySelectorAll('img:not(.gallery-item img):not(.logo-img)').forEach(image => {
+    document.querySelectorAll('img:not(.logo-img)').forEach(image => {
         image.style.cursor = "zoom-in";
         image.onclick = function() {
             modal.style.display = "block";
             modalImg.src = this.src;
             if (captionText) captionText.innerHTML = this.alt;
-        }
-    });
-
-    // Untuk Gallery
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.style.cursor = "zoom-in";
-        item.onclick = function() {
-            const img = this.querySelector('img');
-            modal.style.display = "block";
-            modalImg.src = img.src;
-            if (captionText) captionText.innerHTML = img.alt;
         }
     });
 
@@ -120,7 +130,7 @@ function initImageViewer() {
  * 6. EKSEKUSI SAAT HALAMAN DIMUAT
  */
 document.addEventListener('DOMContentLoaded', function() {
-    loadComponent('nav-placeholder', '/navbar.html');
-    loadComponent('footer-placeholder', '/footer.html');
-    initImageViewer();
+    // Memanggil tanpa '/' di depan agar ditangani oleh logika finalPath
+    loadComponent('nav-placeholder', 'navbar.html');
+    loadComponent('footer-placeholder', 'footer.html');
 });
