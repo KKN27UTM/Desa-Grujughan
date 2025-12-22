@@ -1,0 +1,101 @@
+/* --- PROFILE HERO --- */
+.profile-hero {
+    height: 400px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/img/OIP.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 0;
+}
+
+.profile-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* --- GRID CONTENT --- */
+.profile-detail {
+    padding: 80px 8%;
+    background: #f9f9f9;
+}
+
+.grid-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.card-profile {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+.card-profile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.icon-profile {
+    font-size: 2.5rem;
+    color: #f25b12; /* Warna primary orange */
+    margin-bottom: 20px;
+}
+
+/* --- STRUKTUR PEMERINTAHAN --- */
+.section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.struktur-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.member-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 280px;
+    transition: 0.3s;
+}
+
+.member-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.member-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #f25b12;
+}
+
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .grid-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-hero {
+        height: 300px;
+    }
+}

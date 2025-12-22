@@ -1,0 +1,107 @@
+/* --- HERO GALERI --- */
+.galeri-hero {
+    height: 350px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/img/bg-galeri.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* --- MASONRY GRID --- */
+.galeri-content {
+    padding: 80px 8%;
+    background-color: #f9f9f9;
+}
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 200px; /* Tinggi dasar unit grid */
+    gap: 20px;
+}
+
+.galeri-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #eee;
+    transition: 0.4s ease;
+}
+
+/* Ukuran Variasi Gambar */
+.galeri-card.medium {
+    grid-row: span 2; /* Mengambil 2 baris */
+}
+
+.galeri-card.tall {
+    grid-row: span 3; /* Mengambil 3 baris */
+}
+
+.galeri-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- OVERLAY TEXT --- */
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none; /* Penting: Agar klik tembus ke gambar untuk zoom */
+    transition: opacity 0.4s ease;
+}
+
+.img-overlay span {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0 20px;
+    text-align: center;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+/* --- HOVER EFFECTS --- */
+.galeri-card:hover {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.galeri-card:hover img {
+    transform: scale(1.1);
+}
+
+.galeri-card:hover .img-overlay {
+    opacity: 1;
+}
+
+.galeri-card:hover .img-overlay span {
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 600px) {
+    .masonry-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px; /* Tinggi seragam di mobile agar rapi */
+    }
+
+    .galeri-card.medium, .galeri-card.tall {
+        grid-row: span 1;
+    }
+
+    /* Efek tap di mobile untuk melihat overlay */
+    .galeri-card:active .img-overlay {
+        opacity: 1;
+    }
+}

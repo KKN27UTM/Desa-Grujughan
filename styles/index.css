@@ -1127,3 +1127,77 @@ body {
         font-size: 2rem;
     }
 }
+
+
+
+
+
+
+/* Styling untuk Modal Viewer */
+.image-viewer-modal {
+    display: none; /* Sembunyi secara default */
+    position: fixed;
+    z-index: 2000; /* Pastikan di atas navbar */
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Hitam pekat transparan */
+    backdrop-filter: blur(8px); /* Efek blur di belakang gambar */
+}
+
+/* Gambar di dalam Viewer */
+.viewer-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    animation: zoomEffect 0.3s; /* Animasi muncul */
+}
+
+/* Animasi Zoom In */
+@keyframes zoomEffect {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* Tombol Close */
+.close-viewer {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-viewer:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .viewer-content {
+        width: 95%; /* Gambar lebih lebar di HP */
+        margin-top: 50px;
+    }
+    .close-viewer {
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+    }
+}
+
+/* Gaya untuk link yang sedang aktif */
+.nav-links a.active {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+}
+
+.nav-links a.active::after {
+    width: 100%; /* Garis bawah penuh jika link aktif */
+}

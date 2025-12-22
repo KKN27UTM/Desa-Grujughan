@@ -1,0 +1,99 @@
+/* --- KEGIATAN HERO --- */
+.kegiatan-hero {
+    height: 350px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/img/bg-kegiatan.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* --- LIST KEGIATAN --- */
+.kegiatan-list {
+    padding: 80px 8%;
+    background: #fdfdfd;
+}
+
+.kegiatan-item {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+    background: white;
+    margin-bottom: 40px;
+    padding: 25px;
+    border-radius: 20px;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.kegiatan-img {
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.kegiatan-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kegiatan-meta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Badge Categories */
+.badge {
+    background: #f25b12; /* Primary Orange */
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge.secondary { background: #6d8c32; } /* Green */
+.badge.health { background: #3498db; } /* Blue */
+
+.date {
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+.kegiatan-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.kegiatan-info p {
+    color: #7f8c8d;
+    line-height: 1.7;
+}
+
+/* --- HOVER --- */
+.kegiatan-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .kegiatan-item {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .kegiatan-img {
+        height: 200px;
+    }
+    
+    .kegiatan-info h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,144 @@
+/* --- HERO KONTAK --- */
+.kontak-hero {
+    height: 350px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/img/bg-kontak.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.kontak-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* --- LAYOUT CONTENT --- */
+.kontak-content {
+    padding: 100px 8%;
+    background-color: #ffffff;
+}
+
+.kontak-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.section-desc {
+    color: #7f8c8d;
+    margin-bottom: 40px;
+}
+
+/* --- KONTAK CARD --- */
+.kontak-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.kontak-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    transition: 0.3s ease;
+}
+
+.kontak-card i {
+    font-size: 1.5rem;
+    color: #f25b12; /* Primary Orange */
+    background: #fff0e9;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.kontak-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.kontak-card p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+.kontak-card:hover {
+    transform: translateX(10px);
+    border-color: #f25b12;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* --- MAP BOX --- */
+.map-link-box {
+    display: block;
+    text-decoration: none;
+    height: 350px;
+    background-color: #5d6d53; /* Warna tema peta Grujugan */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.4s;
+}
+
+.map-visual {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 15px;
+    background: rgba(0,0,0,0.2);
+}
+
+.map-visual i {
+    font-size: 4rem;
+}
+
+.map-visual span {
+    font-weight: 600;
+    padding: 10px 25px;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.map-link-box:hover {
+    transform: scale(1.02);
+}
+
+.map-link-box:hover .map-visual {
+    background: rgba(0,0,0,0.4);
+}
+
+.map-link-box:hover span {
+    background: white;
+    color: #5d6d53;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .kontak-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .kontak-hero h1 {
+        font-size: 2.5rem;
+    }
+}
