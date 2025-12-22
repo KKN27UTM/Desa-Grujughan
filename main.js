@@ -1,25 +1,29 @@
 /**
- * 1. FUNGSI LOAD KOMPONEN (NAVBAR & FOOTER) - PERBAIKAN PATH
+ * 1. FUNGSI LOAD KOMPONEN (NAVBAR & FOOTER)
+ * Diperbaiki untuk menangani perbedaan path di GitHub Pages & Local
  */
 function loadComponent(elementId, filePath) {
-    // Menghapus '/' di depan agar menjadi path relatif
-    const cleanPath = filePath.startsWith('/') ? filePath.substring(1) : filePath;
+    // Hapus tanda '/' di awal jika ada untuk memudahkan pengolahan path
+    let cleanPath = filePath.startsWith('/') ? filePath.substring(1) : filePath;
     
-    // Logika penyesuaian path agar jalan di Local maupun GitHub Pages
+    // Logika penentuan path relatif
     let finalPath = '';
     const isLocal = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
     
     if (isLocal) {
-        // Jika local, gunakan root path
+        // Jika di Local (VS Code Live Server), gunakan path absolut
         finalPath = '/' + cleanPath;
     } else {
-        // Jika di GitHub Pages, hitung kedalaman folder
-        const pathArray = window.location.pathname.split('/');
-        // Jika berada di subfolder (seperti /profile/), tambahkan '../'
-        if (pathArray.length > 3 || (pathArray.length === 3 && pathArray[2] !== "")) {
-            finalPath = '../' + cleanPath;
+        // Jika di GitHub Pages, kita gunakan path relatif terhadap lokasi file saat ini
+        // Kita cek apakah kita berada di subfolder (seperti /profile/index.html)
+        const pathSegments = window.location.pathname.split('/').filter(segment => segment.length > 0);
+        
+        // Asumsi struktur GitHub Pages: /nama-repo/folder/index.html
+        // Jika segments > 1, berarti kita ada di subfolder
+        if (pathSegments.length > 1 && !window.location.pathname.endsWith(pathSegments[0] + '/')) {
+             finalPath = '../' + cleanPath;
         } else {
-            finalPath = cleanPath;
+             finalPath = cleanPath;
         }
     }
 
@@ -49,7 +53,8 @@ function setActiveNavLink() {
     
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
-        // Mendapatkan nama file terakhir dari path
+        
+        // Cek jika link adalah Beranda (/)
         const isHome = currentPath.endsWith('/') || currentPath.endsWith('index.html');
         
         if (linkPath === '/' && isHome) {
@@ -67,7 +72,7 @@ function initNavbarFunctions() {
     const nav = document.getElementById('navbar');
     const navLinks = document.querySelector('.nav-links');
 
-    if (!nav) return;
+    if (!nav) return; // Guard clause jika navbar belum dimuat
 
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
@@ -83,7 +88,7 @@ function initNavbarFunctions() {
 }
 
 /**
- * 4. FUNGSI ACCORDION (UNTUK KKN)
+ * 4. FUNGSI ACCORDION
  */
 function toggleAccordion(element) {
     const item = element.parentElement;
@@ -98,7 +103,7 @@ function toggleAccordion(element) {
 }
 
 /**
- * 5. FUNGSI IMAGE VIEWER (MODAL ZOOM)
+ * 5. FUNGSI IMAGE VIEWER
  */
 function initImageViewer() {
     const modal = document.getElementById("imageViewer");
@@ -127,10 +132,10 @@ function initImageViewer() {
 }
 
 /**
- * 6. EKSEKUSI SAAT HALAMAN DIMUAT
+ * 6. EKSEKUSI
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Memanggil tanpa '/' di depan agar ditangani oleh logika finalPath
+    // Panggil tanpa tanda '/' di depan agar ditangani logika finalPath
     loadComponent('nav-placeholder', 'navbar.html');
     loadComponent('footer-placeholder', 'footer.html');
 });
