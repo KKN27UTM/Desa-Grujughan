@@ -1,7 +1,7 @@
 /* --- KEGIATAN HERO --- */
 .kegiatan-hero {
     height: 350px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/img/bg-kegiatan.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/img/keg_bumdes.jpeg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,91 +9,108 @@
     color: white;
 }
 
-/* --- LIST KEGIATAN --- */
-.kegiatan-list {
-    padding: 80px 8%;
-    background: #fdfdfd;
+/* --- Container & Grid Layout --- */
+.kegiatan-list .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.kegiatan-item {
+.kegiatan-grid {
     display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 40px;
-    background: white;
-    margin-bottom: 40px;
-    padding: 25px;
-    border-radius: 20px;
-    align-items: center;
-    transition: 0.3s ease;
+    /* Otomatis mengisi kolom, minimal lebar kartu 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; /* Jarak antar kartu */
+    padding: 10px;
 }
 
-.kegiatan-img {
-    height: 250px;
-    border-radius: 15px;
+/* --- Card Style --- */
+.kegiatan-item {
+    background: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out; /* Animasi halus untuk semua perubahan */
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Agar isi kartu rata bawah jika teks panjang */
 }
 
-.kegiatan-img img {
+/* Hover Effect: Kartu Terangkat */
+.kegiatan-item:hover {
+    transform: translateY(-10px); /* Naik ke atas 10px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Bayangan makin tebal */
+}
+
+/* --- Image Wrapper & Zoom Effect --- */
+.kegiatan-img-wrapper {
+    width: 100%;
+    height: 200px; /* Tinggi gambar tetap agar rapi */
+    overflow: hidden; /* Mencegah gambar keluar kotak saat di-zoom */
+}
+
+.kegiatan-img-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Gambar tidak gepeng */
+    transition: transform 0.5s ease; /* Animasi zoom */
 }
 
-.kegiatan-meta {
+/* Hover Effect: Gambar Zoom */
+.kegiatan-item:hover .kegiatan-img-wrapper img {
+    transform: scale(1.1); /* Zoom in 110% */
+}
+
+/* --- Info Section --- */
+.kegiatan-info {
+    padding: 20px;
+    flex-grow: 1;
     display: flex;
-    gap: 15px;
-    align-items: center;
-    margin-bottom: 15px;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* Badge Categories */
-.badge {
-    background: #f25b12; /* Primary Orange */
-    color: white;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
+.kegiatan-info h3 {
+    margin: 10px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    transition: color 0.3s;
 }
 
-.badge.secondary { background: #6d8c32; } /* Green */
-.badge.health { background: #3498db; } /* Blue */
-
-.date {
-    color: #95a5a6;
-    font-size: 0.9rem;
-}
-
-.kegiatan-info h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
+.kegiatan-item:hover .kegiatan-info h3 {
+    color: #007bff; /* Ganti warna judul saat hover (sesuaikan warnamu) */
 }
 
 .kegiatan-info p {
-    color: #7f8c8d;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
-/* --- HOVER --- */
-.kegiatan-item:hover {
-    transform: translateX(10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+/* --- Badges (Kategori) --- */
+.badge {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 992px) {
-    .kegiatan-item {
-        grid-template-columns: 1fr;
+/* Warna-warni Badge */
+.badge.pendidikan { background: #e3f2fd; color: #1976d2; }
+.badge.kesehatan  { background: #e8f5e9; color: #388e3c; }
+.badge.ekonomi    { background: #fff3e0; color: #f57c00; }
+.badge.religi     { background: #f3e5f5; color: #7b1fa2; }
+.badge.sosial     { background: #eceff1; color: #455a64; }
+
+/* --- Responsive Tambahan (Opsional) --- */
+@media (max-width: 768px) {
+    .kegiatan-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
-    }
-    
-    .kegiatan-img {
-        height: 200px;
-    }
-    
-    .kegiatan-info h2 {
-        font-size: 1.5rem;
     }
 }

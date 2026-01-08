@@ -126,7 +126,7 @@ body {
     height: 100vh;
     /* Pastikan path file benar. Jika file CSS ada di folder 'css', gunakan ../assets/img/OIP.jpg */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                url('../assets/img/OIP.jpg') no-repeat center center/cover;
+                url('../assets/img/pembukaan.jpeg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,7 +312,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #4a5568;
+    color: white;
     font-weight: 600;
     font-size: 1.5rem;
     text-align: center;
