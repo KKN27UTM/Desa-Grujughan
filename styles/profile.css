@@ -1,7 +1,7 @@
 /* --- PROFILE HERO --- */
 .profile-hero {
     height: 400px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/img/OIP.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/img/acara_grujugan.jpeg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -336,5 +336,162 @@ h2 {
     .member-card.highlight {
         width: 180px; /* Mengecilkan ukuran kotak Kades di mobile */
         margin: 0 auto;
+    }
+}
+
+
+
+
+
+/* --- Section Styling --- */
+.sejarah-desa {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Sedikit abu-abu agar beda dengan section atasnya */
+}
+
+.section-desc {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Timeline Container --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px; /* Ruang untuk garis vertikal */
+}
+
+/* Garis Vertikal */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+}
+
+/* --- Timeline Item --- */
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Titik Bulat (Dot) */
+.timeline-dot {
+    position: absolute;
+    left: -38px; /* Mengatur posisi pas di garis */
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 4px solid #007bff; /* Warna biru (sesuaikan tema) */
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Efek saat item di-hover, titiknya berubah */
+.timeline-item:hover .timeline-dot {
+    background: #007bff;
+    transform: scale(1.2);
+}
+
+/* --- Timeline Content (Card) --- */
+.timeline-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #007bff; /* Aksen warna di kiri kartu */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content h3 {
+    margin: 10px 0;
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.timeline-content p {
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Tahun / Periode */
+.timeline-year {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #f1f3f5;
+    color: #555;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+/* --- Styling Khusus "Sekarang" (M. Jamal) --- */
+.timeline-item.current .timeline-dot {
+    border-color: #28a745; /* Warna Hijau */
+    background: #28a745;
+}
+
+.timeline-item.current .timeline-content {
+    border-left-color: #28a745;
+    background: #f0fff4; /* Background agak hijau muda */
+}
+
+.timeline-year.active {
+    background: #28a745;
+    color: #fff;
+}
+
+.badge-status {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #28a745;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Shadow Hover (Konsisten dengan sebelumnya) --- */
+.shadow-hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+/* --- Responsive Mobile --- */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline::before {
+        left: 0;
+    }
+    
+    .timeline-dot {
+        left: -28px;
+        width: 16px;
+        height: 16px;
+        border-width: 3px;
     }
 }

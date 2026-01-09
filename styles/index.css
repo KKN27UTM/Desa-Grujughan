@@ -1001,9 +1001,11 @@ body {
     align-items: center;
     color: white;
     gap: 15px;
-    background: rgba(0,0,0,0.1);
-    transition: background 0.3s;
+
+    background: url("../assets/icons/gambar_lokasi.jpg") center no-repeat;
+    background-size: contain;   /* gambar utuh, tidak terpotong */
 }
+
 
 .map-placeholder:hover {
     transform: translateY(-10px);

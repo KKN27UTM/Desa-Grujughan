@@ -1,7 +1,7 @@
 /* --- HERO GALERI --- */
 .galeri-hero {
     height: 350px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/img/bg-galeri.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../assets/img/acara7_grujugan.jpeg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;

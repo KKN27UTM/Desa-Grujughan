@@ -1,7 +1,7 @@
 /* --- HERO KONTAK --- */
 .kontak-hero {
     height: 350px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/assets/img/bg-kontak.jpg') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/img/acara11.jpeg') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,8 +102,9 @@
     align-items: center;
     justify-content: center;
     color: white;
-    gap: 15px;
-    background: rgba(0,0,0,0.2);
+    /* gap: 15px; */
+    background: url("../assets/icons/gambar_lokasi.jpg") center no-repeat;
+    background-size: contain;   /* gambar utuh, tidak terpotong */
 }
 
 .map-visual i {
