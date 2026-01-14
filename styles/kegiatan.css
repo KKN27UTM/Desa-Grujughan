@@ -1,4 +1,33 @@
 /* --- KEGIATAN HERO --- */
+
+.btn-outline-white {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: transparent;        /* transparan */
+  color: #ffffff;                        /* teks putih */
+  text-decoration: none;
+  border-radius: 999px;                  /* oval/pill */
+  border: 2px solid #ffffff;             /* garis putih */
+  font-weight: 700;
+  font-size: 16px;
+  backdrop-filter: blur(2px);            /* mengikuti transparansi background */
+  transition: background-color .25s, color .25s, transform .15s;
+}
+
+/* efek hover rapi tapi tetap simple */
+.btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* putih transparan */
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* saat ditekan */
+.btn-outline-white:active {
+  transform: translateY(0);
+}
+
+
+
 .kegiatan-hero {
     height: 350px;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/img/keg_bumdes.jpeg') center/cover;
